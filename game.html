@@ -3,66 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Straying - ゲーム体験</title>
+    <title>Straying - ゲーム体験前のご案内</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background-color: #000000;
+            background-color: #0d1117;
+            color: #c9d1d9;
             font-family: 'Noto Sans JP', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: radial-gradient(ellipse at top right, rgba(91, 138, 240, 0.15), transparent 50%),
+                              radial-gradient(ellipse at bottom left, rgba(232, 164, 74, 0.1), transparent 50%);
         }
-        iframe {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-            display: block;
+        .container {
+            width: 90%;
+            max-width: 640px;
+            background: rgba(22, 27, 34, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
         }
-        #overlay {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: rgba(0, 0, 0, 0.75);
+        h1 {
             color: #ffffff;
-            padding: 10px 16px;
-            border-radius: 8px;
-            font-family: monospace, sans-serif;
-            font-size: 18px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            z-index: 9999;
-            pointer-events: none;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            font-size: 28px;
+            margin: 0 0 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
-        #overlay .label {
-            font-size: 11px;
-            font-weight: normal;
-            letter-spacing: 0;
-            color: #ddd;
-            display: block;
-            margin-bottom: 4px;
-            font-family: 'Noto Sans JP', sans-serif;
+        p {
+            line-height: 1.8;
+            margin: 0 0 20px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        .code-box {
+            background: rgba(91, 138, 240, 0.1);
+            border: 1.5px solid rgba(91, 138, 240, 0.4);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 30px 0;
+        }
+        .code-box-title {
+            font-size: 13px;
+            color: rgba(91, 138, 240, 0.9);
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .code-value {
+            font-size: 32px;
+            font-weight: bold;
+            font-family: monospace, sans-serif;
+            color: #ffffff;
+            letter-spacing: 4px;
+            margin: 0;
+        }
+        .code-desc {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+        .start-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #5B8AF0, #2B5EA7);
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(91, 138, 240, 0.4);
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(91, 138, 240, 0.6);
+            background: linear-gradient(135deg, #6b98fc, #3468b8);
+        }
+        .info-list {
+            text-align: left;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 24px 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+        .info-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .info-list li {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .info-list li:last-child {
+            margin-bottom: 0;
         }
     </style>
 </head>
 <body>
-    <!-- 実際のゲーム画面を埋め込み -->
-    <iframe src="https://solventer.jp/Straying_Ex/" title="Straying Experience" allow="fullscreen"></iframe>
+    <div class="container">
+        <h1>Straying</h1>
+        <p>これより、ゲーム体験へ移ります。<br>プレイ時間は約20分〜30分を予定しています。</p>
 
-    <!-- 匿名コードのオーバーレイ表示スクリプト -->
+        <div class="code-box" id="codeBox" style="display: none;">
+            <div class="code-box-title">あなたの匿名コード</div>
+            <div class="code-value" id="codeDisplay">---</div>
+            <div class="code-desc">
+                ※この後ご案内する「ゲーム」の先へ進むにはコードは不要ですが、そのさらに後に行う<strong>事後アンケート</strong>で再度コードが必要になります。<br>万が一のため、この画面をスクリーンショットしておくなどしてコードを控えておいてください。
+            </div>
+        </div>
+
+        <div class="info-list">
+            <ul>
+                <li>「ゲームを始める」を押すと別タブでゲーム画面が開きます。</li>
+                <li>ゲーム内での操作や進め方は自由です。あなたの感じたままに進めてください。</li>
+                <li>プレイが終わりましたら、この画面や元のアンケートポータルへ戻り、<strong>事後アンケート</strong>へのご回答をお願いいたします。</li>
+            </ul>
+        </div>
+
+        <a href="https://solventer.jp/Straying_Ex/" target="_self" class="start-btn">ゲームを始める</a>
+    </div>
+
     <script>
         window.addEventListener("DOMContentLoaded", function() {
+            // URLパラメータ、またはlocalStorageからコードを取得
             const urlParams = new URLSearchParams(window.location.search);
-            const code = urlParams.get('code');
+            let code = urlParams.get('code');
+            if (!code) {
+                try {
+                    code = localStorage.getItem("survey_anon_code");
+                } catch(e) {}
+            }
             
             if (code) {
-                const overlay = document.createElement('div');
-                overlay.id = 'overlay';
-                overlay.innerHTML = '<span class="label">事前アンケートで作成した匿名コード</span>' + code;
-                document.body.appendChild(overlay);
+                document.getElementById('codeDisplay').innerText = code;
+                document.getElementById('codeBox').style.display = 'block';
             }
         });
     </script>

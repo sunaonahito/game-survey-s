@@ -302,7 +302,7 @@ function App(){
     return 1;
   };
   const reqIds=()=>{
-    if(view==="pre")return["q1",...PRE.swls.items.map(i=>i.id),...PRE.cses.items.map(i=>i.id),...PRE.srgs.items.map(i=>i.id),...PRE.apts.items.map(i=>i.id)];
+    if(view==="pre")return["q1"]; // 匿名コード(q1)のみ必須、残りはすべて任意
     if(view==="post")return["q1",...POST.swls.items.map(i=>i.id),...POST.cses.items.map(i=>i.id),...POST.srgs.items.map(i=>i.id),...POST.arcs.items.map(i=>i.id)];
     return[];
   };

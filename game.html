@@ -117,12 +117,26 @@
         <h1>Straying</h1>
         <p>これより、ゲーム体験へ移ります。<br>プレイ時間は約20分〜30分を予定しています。</p>
 
-        <div class="code-box" id="codeBox" style="display: none;">
-            <div class="code-box-title">あなたの匿名コード</div>
-            <div class="code-value" id="codeDisplay">---</div>
-            <div class="code-desc">
-                ※この後ご案内する「ゲーム」の先へ進むにはコードは不要ですが、そのさらに後に行う<strong>事後アンケート</strong>で再度コードが必要になります。<br>万が一のため、この画面をスクリーンショットしておくなどしてコードを控えておいてください。
-            </div>
+        <div style="margin: 40px 0;">
+            <p style="font-size: 14px; color: rgba(255, 255, 255, 0.9); margin-bottom: 12px; font-weight: 500;">事前アンケートで作成した匿名コードを入力してください</p>
+            <input type="text" id="codeInput" placeholder="例： 0315-BFA" value="" style="
+                width: 100%;
+                max-width: 320px;
+                padding: 16px 20px;
+                font-size: 24px;
+                font-weight: bold;
+                font-family: monospace, sans-serif;
+                letter-spacing: 4px;
+                color: #ffffff;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1.5px solid rgba(91, 138, 240, 0.5);
+                border-radius: 12px;
+                text-align: center;
+                outline: none;
+                transition: all 0.3s;
+                box-sizing: border-box;
+            " onfocus="this.style.borderColor='#5B8AF0'; this.style.boxShadow='0 0 0 3px rgba(91,138,240,0.3)';" 
+              onblur="this.style.borderColor='rgba(91, 138, 240, 0.5)'; this.style.boxShadow='none';">
         </div>
 
         <div class="info-list">
@@ -148,8 +162,7 @@
             }
             
             if (code) {
-                document.getElementById('codeDisplay').innerText = code;
-                document.getElementById('codeBox').style.display = 'block';
+                document.getElementById('codeInput').value = code;
             }
         });
     </script>

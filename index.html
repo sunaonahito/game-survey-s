@@ -314,7 +314,7 @@ function App(){
     setSaving(true);setGs(null);
     const now=new Date();
     const ts=new Date(now.getTime()-(now.getTimezoneOffset()*60000)).toISOString().replace("Z","+09:00");
-    const fa={...ans};Object.keys(oth).forEach(k=>{if(oth[k])fa[`${k}_other`]=oth[k]});
+    const fa={...ans,game:"Straying"};Object.keys(oth).forEach(k=>{if(oth[k])fa[`${k}_other`]=oth[k]});
     try{const r=await sendToSheets(view,fa,ts);setGs(r.skipped?"skipped":r.success?"success":"error")}catch(e){setGs("error")}
     if(view==="pre"&&fa.q1){try{localStorage.setItem("survey_anon_code",fa.q1)}catch(e){}}
     setDone(true);setSaving(false);window.scrollTo(0,0);

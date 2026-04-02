@@ -148,24 +148,46 @@
             </ul>
         </div>
 
-        <a href="https://solventer.jp/Straying_Ex/" target="_self" class="start-btn">ゲームを始める</a>
+        <button onclick="startGame()" class="start-btn">ゲームを始める</button>
     </div>
 
     <script>
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbwmCBURkSOU-2zMqJs9KNaeU8goohM0bSIsklu7oxyDhJQtLj6GEKa1TMVmAm3NRgoYQg/exec";
+
         window.addEventListener("DOMContentLoaded", function() {
-            // URLパラメータ、またはlocalStorageからコードを取得
             const urlParams = new URLSearchParams(window.location.search);
             let code = urlParams.get('code');
             if (!code) {
-                try {
-                    code = localStorage.getItem("survey_anon_code");
-                } catch(e) {}
+                try { code = localStorage.getItem("survey_anon_code"); } catch(e) {}
             }
-            
             if (code) {
                 document.getElementById('codeInput').value = code;
             }
         });
+
+        function startGame() {
+            const code = document.getElementById('codeInput').value.trim();
+            const ts = new Date().toISOString();
+            fetch(GAS_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify({
+                    type: 'game',
+                    game: 'Straying',
+                    anonymousCode: code,
+                    timestamp: ts,
+                    startTime: ts,
+                    endTime: '',
+                    stage1_cards: [],
+                    stage2_stories: [],
+                    stage3_lostCards: [],
+                    special_recipientName: '',
+                    special_message: ''
+                })
+            }).catch(function(){});
+            window.location.href = 'https://solventer.jp/Straying_Ex/';
+        }
     </script>
 </body>
 </html>

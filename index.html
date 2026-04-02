@@ -308,16 +308,15 @@ function App(){
   };
   const miss=()=>reqIds().filter(id=>{const v=ans[id];if(Array.isArray(v))return v.length===0;return v===undefined||v===null||v===""});
 
-  const submit=async()=>{
+  const submit=()=>{
     const m=miss();
     if(m.length>0){setErrs(true);const el=document.getElementById(`f-${m[0]}`);if(el)el.scrollIntoView({behavior:"smooth",block:"center"});return;}
-    setSaving(true);setGs(null);
     const now=new Date();
     const ts=new Date(now.getTime()-(now.getTimezoneOffset()*60000)).toISOString().replace("Z","+09:00");
     const fa={...ans,game:"Straying"};Object.keys(oth).forEach(k=>{if(oth[k])fa[`${k}_other`]=oth[k]});
-    try{const r=await sendToSheets(view,fa,ts);setGs(r.skipped?"skipped":r.success?"success":"error")}catch(e){setGs("error")}
+    sendToSheets(view,fa,ts);
     if(view==="pre"&&fa.q1){try{localStorage.setItem("survey_anon_code",fa.q1)}catch(e){}}
-    setDone(true);setSaving(false);window.scrollTo(0,0);
+    setDone(true);window.scrollTo(0,0);
   };
 
   // HOME

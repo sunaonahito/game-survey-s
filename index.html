@@ -22,7 +22,7 @@ const {useState,useCallback,useEffect} = React;
 // ============================================================
 // Google スプレッドシート連携
 // ============================================================
-const GAS_URL = "https://script.google.com/macros/s/AKfycbxnUBvHEkPr8WifVReYWpgeG72lDAm1MTjWxWveR7o-E0MH4lViLBa6KyNcxm9J7ZfSjA/exec";
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwmCBURkSOU-2zMqJs9KNaeU8goohM0bSIsklu7oxyDhJQtLj6GEKa1TMVmAm3NRgoYQg/exec";
 
 // --- Scales ---
 const L7={min:1,max:7,labels:["全くそう思わない","","","","","","非常にそう思う"]};
@@ -347,7 +347,7 @@ function App(){
           </div>
         </button>
 
-        <a href={(()=>{try{const c=localStorage.getItem("survey_anon_code");return c?`./game.html?code=${c}`:"./game.html"}catch(e){return"./game.html"}})()} target="_blank" rel="noopener noreferrer" style={{display:"block",background:"linear-gradient(135deg,rgba(232,164,74,0.15),rgba(200,130,40,0.2))",border:"1.5px solid rgba(232,164,74,0.4)",borderRadius:12,padding:"24px 28px",textAlign:"left",cursor:"pointer",transition:"all 0.2s",boxShadow:"0 2px 8px rgba(0,0,0,0.2)",textDecoration:"none"}}
+        <a href="https://solventer.jp/Straying_Pre-release/" target="_blank" rel="noopener noreferrer" style={{display:"block",background:"linear-gradient(135deg,rgba(232,164,74,0.15),rgba(200,130,40,0.2))",border:"1.5px solid rgba(232,164,74,0.4)",borderRadius:12,padding:"24px 28px",textAlign:"left",cursor:"pointer",transition:"all 0.2s",boxShadow:"0 2px 8px rgba(0,0,0,0.2)",textDecoration:"none"}}
           onMouseEnter={e=>{e.currentTarget.style.borderColor=P.acc;e.currentTarget.style.boxShadow="0 4px 20px rgba(232,164,74,0.3)";e.currentTarget.style.background="linear-gradient(135deg,rgba(232,164,74,0.25),rgba(200,130,40,0.3))"}}
           onMouseLeave={e=>{e.currentTarget.style.borderColor="rgba(232,164,74,0.4)";e.currentTarget.style.boxShadow="0 2px 8px rgba(0,0,0,0.2)";e.currentTarget.style.background="linear-gradient(135deg,rgba(232,164,74,0.15),rgba(200,130,40,0.2))"}}>
           <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>

@@ -107,7 +107,11 @@
           { id: "q38", t: "本ゲームのクオリティが、注意を引きつけるのに役立った。" }, { id: "q39", t: "本ゲームにおける情報の提示の仕方が、注意を持続させるのに役立った。" }, { id: "q40", t: "本ゲームの場面、課題、演出などの多様さが、注意を持続させるのに役立った。" }, { id: "q41", t: "本ゲームの内容が、自分がすでに知っていることとどう関連しているかが明確だった。" }, { id: "q42", t: "本ゲームの内容と表現のしかたから、この学習に取り組む価値があると感じられた。" }, { id: "q43", t: "本ゲームの内容は自分にとって役立つものだった。" }, { id: "q44", t: "本ゲームに取り組む中で、学習内容をうまく身につけられると自信が持てた。" }, { id: "q45", t: "本ゲームにしばらく取り組んだ後、課題をやり遂げられると自信が持てた。" }, { id: "q46", t: "本ゲームの内容がよく整理されていたので、学習内容を習得できると自信が持てた。" }, { id: "q47", t: "本ゲームに取り組むのが楽しく、もっと続けたいと感じた。" }, { id: "q48", t: "本ゲームに取り組むのはとても楽しかった。" }, { id: "q49", t: "このようによくできたゲームに取り組めたことは喜ばしかった。" },
         ]
       },
-      open: [{ id: "q50", type: "textarea", label: "このアンケートおよび活動を体験された感想をお聞かせください。", ph: "自由にご記入ください" }],
+      gameHabits: [
+        { id: "q50", dn: "Q50", type: "radio", label: "普段、どのくらいの頻度でデジタルゲーム（スマートフォン、PC、家庭用ゲーム機など）をプレイしますか。", opts: ["毎日プレイしている", "週に数日程度プレイしている", "週末や休日にまとめてプレイしている", "ごくまれにプレイする程度（月に数日以下）", "ほとんど（あるいは全く）プレイしない", "回答しない"] },
+        { id: "q51", dn: "Q51", type: "text", label: "普段よくプレイしているゲームタイトルがあれば教えてください（略記可・任意）。", hint: "（特になければ空欄で構いません）" }
+      ],
+      open: [{ id: "q52", dn: "Q52", type: "textarea", label: "このアンケートおよび活動を体験された感想をお聞かせください。", ph: "自由にご記入ください" }],
     };
 
     // --- Send to Google Sheets ---
@@ -339,7 +343,7 @@
       const cnt = () => Object.keys(ans).filter(k => { const v = ans[k]; if (Array.isArray(v)) return v.length > 0; return v !== undefined && v !== null && v !== "" }).length;
       const tot = () => {
         if (view === "pre") return PRE.demo.length + PRE.swls.items.length + PRE.cses.items.length + PRE.srgs.items.length + PRE.apts.items.length;
-        if (view === "post") return POST.code.length + POST.swls.items.length + POST.cses.items.length + POST.srgs.items.length + POST.arcs.items.length + POST.open.length;
+        if (view === "post") return POST.code.length + POST.swls.items.length + POST.cses.items.length + POST.srgs.items.length + POST.arcs.items.length + POST.gameHabits.length + POST.open.length;
         return 1;
       };
       const reqIds = () => {
@@ -406,7 +410,7 @@
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div><h3 style={{ fontFamily: "'Noto Sans JP',sans-serif", fontSize: 17, color: "rgba(255,255,255,0.85)", margin: "0 0 6px", fontWeight: 500 }}>ゲーム体験後のご質問</h3>
                   <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", margin: 0, lineHeight: 1.6 }}>人生満足度、コーピング、成長、学習動機づけに関する質問</p>
-                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：5〜10分　|　全50問</p></div>
+                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：5〜10分　|　全52問</p></div>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B8AF0" strokeWidth="2.5"><path d="M9 18l6-6-6-6" /></svg>
               </div>
             </button>
@@ -471,6 +475,9 @@
             <div id="f-q10"><SS section={POST.cses} answers={ans} set={sa} /></div>
             <div id="f-q23"><SS section={POST.srgs} answers={ans} set={sa} /></div>
             <div id="f-q38"><SS section={POST.arcs} answers={ans} set={sa} /></div>
+            <div style={{ background: P.card, border: `1px solid ${P.bdr}`, borderRadius: 10, padding: "20px 24px", marginBottom: 32 }}>
+              {POST.gameHabits.map(q => <div key={q.id} id={`f-${q.id}`}><DQ q={q} value={ans[q.id]} onChange={v => sa(q.id, v)} /></div>)}
+            </div>
             <div style={{ background: P.card, border: `1px solid ${P.bdr}`, borderRadius: 10, padding: "20px 24px", marginBottom: 32 }}>
               {POST.open.map(q => <div key={q.id} id={`f-${q.id}`}><DQ q={q} value={ans[q.id]} onChange={v => sa(q.id, v)} /></div>)}
             </div>

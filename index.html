@@ -53,15 +53,15 @@
     // --- Questions ---
     const PRE = {
       demo: [
-        { id: "q1", dn: "Q1", type: "code", label: "匿名コードを作成してください。" },
-        { id: "q2", dn: "Q2", type: "number", label: "あなたの年齢をお書きください。", ph: "歳", suf: "歳" },
-        { id: "q3", dn: "Q3", type: "radio", label: "あなたの性別を教えてください。", opts: ["男性", "女性", "どちらでもない", "回答しない"] },
-        { id: "q4", dn: "Q4", type: "checkbox", label: "あなたの民族的背景を教えてください。（当てはまるものすべて選択）", opts: ["日本人", "東アジア系（中国、韓国など）", "東南アジア系（ベトナム、タイ、フィリピンなど）", "南アジア系（インド、ネパールなど）", "その他", "回答しない"], hasOther: true, otherIdx: 4 },
-        { id: "q5", dn: "Q5", type: "checkbox", label: "あなたの現在の職業や立場を教えてください。（当てはまるものすべて選択）", opts: ["会社員・公務員・団体職員（正社員・正規職員）", "会社員・団体職員（派遣・契約・嘱託社員）", "自営業・フリーランス・経営者", "パート・アルバイト", "専業主婦・主夫", "学生", "無職・休職中・リタイア", "その他", "回答しない"], hasOther: true, otherIdx: 7 },
-        { id: "q6", dn: "Q6", type: "radio", label: "あなたの現在の婚姻・交際状況を教えてください。", opts: ["既婚", "未婚（現在、パートナーがいる）", "未婚（現在、パートナーがいない）", "その他", "回答しない"] },
-        { id: "q7", dn: "Q7", type: "radio", label: "子どもの有無を教えてください。", opts: ["子どもがいる", "子どもはいない", "回答しない"] },
-        { id: "q8", dn: "Q8", type: "radio", label: "あなたの現在の健康状態を教えてください。（最も当てはまるものを選択）", opts: ["よい", "まあよい", "ふつう", "あまりよくない", "よくない", "回答しない"] },
-        { id: "q9", dn: "Q9", type: "radio", label: "あなたの喪失経験を教えてください。過去3年以内に、あなたにとって非常に重大な喪失体験（大切な人との死別や離別、重要な役割の喪失、健康の喪失など）がありましたか。", opts: ["はい", "いいえ", "わからない", "回答しない"] },
+        { id: "q1", type: "code", label: "匿名コードを作成してください。" },
+        { id: "q2", type: "number", label: "あなたの年齢をお書きください。", ph: "歳", suf: "歳" },
+        { id: "q3", type: "radio", label: "あなたの性別を教えてください。", opts: ["男性", "女性", "どちらでもない", "回答しない"] },
+        { id: "q4", type: "checkbox", label: "あなたの民族的背景を教えてください。（当てはまるものすべて選択）", opts: ["日本人", "東アジア系（中国、韓国など）", "東南アジア系（ベトナム、タイ、フィリピンなど）", "南アジア系（インド、ネパールなど）", "その他", "回答しない"], hasOther: true, otherIdx: 4 },
+        { id: "q5", type: "checkbox", label: "あなたの現在の職業や立場を教えてください。（当てはまるものすべて選択）", opts: ["会社員・公務員・団体職員（正社員・正規職員）", "会社員・団体職員（派遣・契約・嘱託社員）", "自営業・フリーランス・経営者", "パート・アルバイト", "専業主婦・主夫", "学生", "無職・休職中・リタイア", "その他", "回答しない"], hasOther: true, otherIdx: 7 },
+        { id: "q6", type: "radio", label: "あなたの現在の婚姻・交際状況を教えてください。", opts: ["既婚", "未婚（現在、パートナーがいる）", "未婚（現在、パートナーがいない）", "その他", "回答しない"] },
+        { id: "q7", type: "radio", label: "子どもの有無を教えてください。", opts: ["子どもがいる", "子どもはいない", "回答しない"] },
+        { id: "q8", type: "radio", label: "あなたの現在の健康状態を教えてください。（最も当てはまるものを選択）", opts: ["よい", "まあよい", "ふつう", "あまりよくない", "よくない", "回答しない"] },
+        { id: "q9", type: "radio", label: "あなたの喪失経験を教えてください。過去3年以内に、あなたにとって非常に重大な喪失体験（大切な人との死別や離別、重要な役割の喪失、健康の喪失など）がありましたか。", opts: ["はい", "いいえ", "わからない", "回答しない"] },
       ],
       swls: {
         title: "§1.", inst: "以下の文は、あなたの人生全般に対する満足度をたずねるものです。正解や不正解はありません。感じたままに正直にお答えください。", scale: L7, items: [
@@ -86,7 +86,7 @@
     };
 
     const POST = {
-      code: [{ id: "q1", dn: "Q1", type: "code", label: "匿名コードを確認してください。", isPost: true }],
+      code: [{ id: "q1", type: "code", label: "匿名コードを確認してください。", isPost: true }],
       swls: {
         title: "§1.", inst: "以下の文は、あなたの人生全般に対する満足度をたずねるものです。正解や不正解はありません。感じたままに正直にお答えください。", scale: L7, items: [
           { id: "q2", t: "私は自分の人生に満足している。" }, { id: "q3", t: "私の人生は、とても素晴らしい状態だ。" }, { id: "q4", t: "大体において、私の人生は理想に近い。" }, { id: "q5", t: "私はこれまで、自分の人生に求める大切なものを得てきた。" }, { id: "q6", t: "もう一度人生をやり直せるとしても、ほとんど何も変えないだろう。" }, { id: "q7", t: "私の人生は価値に満ちている。" }, { id: "q8", t: "自分が存在していることには意味がある。" }, { id: "q9", t: "毎日、生きていることに価値があると感じる。" },
@@ -108,10 +108,11 @@
         ]
       },
       gameHabits: [
-        { id: "q50", dn: "Q50", type: "radio", label: "普段、どのくらいの頻度でデジタルゲーム（スマートフォン、PC、家庭用ゲーム機など）をプレイしますか。", opts: ["毎日プレイしている", "週に数日程度プレイしている", "週末や休日にまとめてプレイしている", "ごくまれにプレイする程度（月に数日以下）", "ほとんど（あるいは全く）プレイしない", "回答しない"] },
-        { id: "q51", dn: "Q51", type: "text", label: "普段よくプレイしているゲームタイトルがあれば教えてください（略記・複数可）。", hint: "（特になければ空欄で構いません）" }
+        { id: "q50", type: "radio", label: "週に何日くらいゲームをプレイしますか。（ゲーム：スマートフォン・PC・ゲーム機など）", opts: ["まったくプレイしない", "週に1日未満（ごくまれにプレイする）", "週に1〜2日", "週に3〜4日", "週に5〜6日", "毎日（週7日）", "わからない"] },
+        { id: "q51", type: "radio", label: "（ゲームをする日は）1日あたり平均してどのくらいの時間プレイしますか。", opts: ["まったくプレイしない", "少しだけプレイする", "約30分", "約1時間", "約2時間", "約3時間", "4時間以上", "わからない"] },
+        { id: "q52", type: "text", label: "プレイしているゲームがあればタイトルを教えてください（略記・複数可）。", hint: "（特になければ空欄で構いません）" }
       ],
-      open: [{ id: "q52", dn: "Q52", type: "textarea", label: "今回ご体験いただいたゲームや、それに伴う一連の活動に対するご感想・ご意見をお聞かせください。", ph: "自由にご記入ください" }],
+      open: [{ id: "q53", type: "textarea", label: "今回ご体験いただいたゲームや、それに伴う一連の活動に対するご感想・ご意見をお聞かせください。", ph: "自由にご記入ください" }],
     };
 
     // --- Send to Google Sheets ---
@@ -201,9 +202,6 @@
 
       const code = cur();
       const filled = [month, day, bl, fr, gr].filter(Boolean).length;
-      const blLabel = bl ? BLOOD.find(o => o.v === bl)?.l : "";
-      const frLabel = fr ? ROWS.find(o => o.v === fr)?.l : "";
-      const grLabel = gr ? ROWS.find(o => o.v === gr)?.l : "";
       const sel = { width: "100%", padding: "10px 14px", border: `1.5px solid ${P.bdr}`, borderRadius: 8, fontSize: 15, fontFamily: "'Noto Sans JP',sans-serif", background: "rgba(255,255,255,0.08)", color: P.txt, outline: "none", cursor: "pointer" };
 
       const seg = (txt, active) => <span style={{ color: active ? P.priL : "rgba(255,255,255,0.25)", transition: "color 0.2s" }}>{txt}</span>;
@@ -282,11 +280,11 @@
     function DQ({ q, value, onChange, ov, onOv }) {
       const fs = { width: "100%", padding: "10px 14px", border: `1.5px solid ${P.bdr}`, borderRadius: 8, fontSize: 15, fontFamily: "'Noto Sans JP',sans-serif", background: "rgba(255,255,255,0.08)", color: P.txt, outline: "none", boxSizing: "border-box", transition: "border-color 0.2s" };
       if (q.type === "code") return <div style={{ marginBottom: 24 }}>
-        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 12, lineHeight: 1.7, fontWeight: 500 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.dn || q.id.toUpperCase()}</span>{q.label}</label>
+        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 12, lineHeight: 1.7, fontWeight: 500 }}>{q.label}</label>
         <CodeGen value={value} onChange={onChange} isPost={q.isPost} />
       </div>;
       if (q.type === "text" || q.type === "number") return <div style={{ marginBottom: 24 }}>
-        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 8, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.dn || q.id.toUpperCase()}</span>{q.label}</label>
+        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 8, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.id.toUpperCase()}</span>{q.label}</label>
         {q.hint && <p style={{ fontSize: 12, color: P.mut, margin: "-4px 0 8px" }}>{q.hint}</p>}
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <input type={q.type === "number" ? "number" : "text"} value={value || ""} onChange={e => onChange(e.target.value)} placeholder={q.ph} style={{ ...fs, maxWidth: q.type === "number" ? 120 : 300 }} onFocus={e => e.target.style.borderColor = P.pri} onBlur={e => e.target.style.borderColor = P.bdr} />
@@ -294,11 +292,11 @@
         </div>
       </div>;
       if (q.type === "textarea") return <div style={{ marginBottom: 24 }}>
-        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 8, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.dn || q.id.toUpperCase()}</span>{q.label}</label>
+        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 8, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.id.toUpperCase()}</span>{q.label}</label>
         <textarea value={value || ""} onChange={e => onChange(e.target.value)} placeholder={q.ph} rows={5} style={{ ...fs, resize: "vertical", minHeight: 100 }} onFocus={e => e.target.style.borderColor = P.pri} onBlur={e => e.target.style.borderColor = P.bdr} />
       </div>;
       if (q.type === "radio") return <div style={{ marginBottom: 24 }}>
-        <p style={{ fontSize: 15, color: P.txt, marginBottom: 10, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.dn || q.id.toUpperCase()}</span>{q.label}</p>
+        <p style={{ fontSize: 15, color: P.txt, marginBottom: 10, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.id.toUpperCase()}</span>{q.label}</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           {q.opts.map((o, i) => {
             const s = value === o; return <label key={i} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 14px", borderRadius: 8, cursor: "pointer", transition: "all 0.15s", background: s ? P.selBg : "transparent", border: `1.5px solid ${s ? P.pri : "transparent"}`, fontSize: 14 }}>
@@ -311,7 +309,7 @@
       </div>;
       if (q.type === "checkbox") {
         const sel = value || []; return <div style={{ marginBottom: 24 }}>
-          <p style={{ fontSize: 15, color: P.txt, marginBottom: 10, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.dn || q.id.toUpperCase()}</span>{q.label}</p>
+          <p style={{ fontSize: 15, color: P.txt, marginBottom: 10, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.id.toUpperCase()}</span>{q.label}</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {q.opts.map((o, i) => {
               const c = sel.includes(o); return <label key={i} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 14px", borderRadius: 8, cursor: "pointer", transition: "all 0.15s", background: c ? P.selBg : "transparent", border: `1.5px solid ${c ? P.pri : "transparent"}`, fontSize: 14 }}>
@@ -356,8 +354,7 @@
       const submit = () => {
         const m = miss();
         if (m.length > 0) { setErrs(true); const el = document.getElementById(`f-${m[0]}`); if (el) el.scrollIntoView({ behavior: "smooth", block: "center" }); return; }
-        const now = new Date();
-        const ts = new Date(now.getTime() - (now.getTimezoneOffset() * 60000)).toISOString().replace("Z", "");
+        const now = new Date(); const ts = new Date(now.getTime() - (now.getTimezoneOffset() * 60000)).toISOString().replace("Z", "");
         const fa = { ...ans, game: "Straying" }; Object.keys(oth).forEach(k => { if (oth[k]) fa[`${k}_other`] = oth[k] });
         sendToSheets(view, fa, ts);
         if (view === "pre" && fa.q1) { try { localStorage.setItem("survey_anon_code", fa.q1) } catch (e) { } }
@@ -391,14 +388,13 @@
               </div>
             </button>
 
-            <a href={(() => { try { const c = localStorage.getItem("survey_anon_code"); return c ? `./game.html?code=${c}` : "./game.html" } catch (e) { return "./game.html" } })()}
-              style={{ display: "block", background: "linear-gradient(135deg,rgba(232,164,74,0.15),rgba(200,130,40,0.2))", border: "1.5px solid rgba(232,164,74,0.4)", borderRadius: 12, padding: "24px 28px", textAlign: "left", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 2px 8px rgba(0,0,0,0.2)", textDecoration: "none" }}
+            <a href={(() => { try { const c = localStorage.getItem("survey_anon_code"); return c ? `./game.html?code=${c}` : "./game.html" } catch (e) { return "./game.html" } })()} style={{ display: "block", background: "linear-gradient(135deg,rgba(232,164,74,0.15),rgba(200,130,40,0.2))", border: "1.5px solid rgba(232,164,74,0.4)", borderRadius: 12, padding: "24px 28px", textAlign: "left", cursor: "pointer", transition: "all 0.2s", boxShadow: "0 2px 8px rgba(0,0,0,0.2)", textDecoration: "none" }}
               onMouseEnter={e => { e.currentTarget.style.borderColor = P.acc; e.currentTarget.style.boxShadow = "0 4px 20px rgba(232,164,74,0.3)"; e.currentTarget.style.background = "linear-gradient(135deg,rgba(232,164,74,0.25),rgba(200,130,40,0.3))" }}
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(232,164,74,0.4)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)"; e.currentTarget.style.background = "linear-gradient(135deg,rgba(232,164,74,0.15),rgba(200,130,40,0.2))" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div><h3 style={{ fontFamily: "'Noto Sans JP',sans-serif", fontSize: 17, color: "rgba(255,255,255,0.85)", margin: "0 0 6px", fontWeight: 500 }}>ゲーム体験</h3>
                   <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", margin: 0, lineHeight: 1.6 }}>ゲームを体験してください</p>
-                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：20〜30分</p></div>
+                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：20〜30分　|　全3ステージ</p></div>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={P.acc} strokeWidth="2.5"><path d="M9 18l6-6-6-6" /></svg>
               </div>
             </a>
@@ -410,7 +406,7 @@
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div><h3 style={{ fontFamily: "'Noto Sans JP',sans-serif", fontSize: 17, color: "rgba(255,255,255,0.85)", margin: "0 0 6px", fontWeight: 500 }}>ゲーム体験後のご質問</h3>
                   <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", margin: 0, lineHeight: 1.6 }}>人生満足度、コーピング、成長、学習動機づけに関する質問</p>
-                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：5〜10分　|　全52問</p></div>
+                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：5〜10分　|　全53問</p></div>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B8AF0" strokeWidth="2.5"><path d="M9 18l6-6-6-6" /></svg>
               </div>
             </button>
@@ -456,6 +452,7 @@
           </div>}
 
           <div style={{ background: P.card, border: `1px solid ${P.bdr}`, borderRadius: 10, padding: "20px 24px", marginBottom: 32 }}>
+            <h3 style={{ fontFamily: "'Noto Sans JP',sans-serif", fontSize: 13, color: P.acc, margin: "0 0 16px", fontWeight: 600 }}>{"Q1"}</h3>
             {(isPre ? PRE.demo : POST.code).map(q => {
               const fieldErr = errs === true && missing.includes(q.id);
               return <div key={q.id} id={`f-${q.id}`}>
@@ -475,8 +472,12 @@
             <div id="f-q10"><SS section={POST.cses} answers={ans} set={sa} /></div>
             <div id="f-q23"><SS section={POST.srgs} answers={ans} set={sa} /></div>
             <div id="f-q38"><SS section={POST.arcs} answers={ans} set={sa} /></div>
-            <div style={{ background: P.card, border: `1px solid ${P.bdr}`, borderRadius: 10, padding: "20px 24px", marginBottom: 32 }}>
-              {POST.gameHabits.map(q => <div key={q.id} id={`f-${q.id}`}><DQ q={q} value={ans[q.id]} onChange={v => sa(q.id, v)} /></div>)}
+            <div style={{ marginBottom: 32 }}>
+              <div style={{ background: "linear-gradient(90deg,#1E3A6E,#2B5EA7)", color: "#fff", padding: "16px 24px", borderRadius: "10px 10px 0 0", fontFamily: "'Noto Serif JP',serif" }}><h2 style={{ margin: 0, fontSize: 17, fontWeight: 600 }}>§5.</h2></div>
+              <div style={{ background: P.card, border: `1px solid ${P.bdr}`, borderTop: "none", borderRadius: "0 0 10px 10px", padding: "8px 24px 16px" }}>
+                <p style={{ fontSize: 14, color: "#fff", lineHeight: 1.8, margin: "12px 0 8px" }}>以下の質問は、あなたの普段のゲームプレイについてたずねるものです。ゲームをしない方も含め、正直にお答えください。</p>
+                {POST.gameHabits.map(q => <div key={q.id} id={`f-${q.id}`}><DQ q={q} value={ans[q.id]} onChange={v => sa(q.id, v)} /></div>)}
+              </div>
             </div>
             <div style={{ background: P.card, border: `1px solid ${P.bdr}`, borderRadius: 10, padding: "20px 24px", marginBottom: 32 }}>
               {POST.open.map(q => <div key={q.id} id={`f-${q.id}`}><DQ q={q} value={ans[q.id]} onChange={v => sa(q.id, v)} /></div>)}
@@ -494,6 +495,15 @@
 
     ReactDOM.render(<App />, document.getElementById("root"));
   </script>
+</body>
+
+</html>
+</div>;
+}
+
+ReactDOM.render(
+<App />,document.getElementById("root"));
+</script>
 </body>
 
 </html>

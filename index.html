@@ -46,6 +46,7 @@
     const C11 = { min: 0, max: 10, labels: ["まったくできる自信がない", "", "", "", "", "", "", "", "", "", "確実にできる自信がある"] };
     const S7 = { min: -3, max: 3, labels: ["非常に否定的な変化", "", "", "変化なし", "", "", "非常に肯定的な変化"] };
     const L6 = { min: 1, max: 6, labels: ["全く当てはまらない", "", "", "", "", "非常に当てはまる"] };
+    const L7A = { min: 1, max: 7, labels: ["全く当てはまらない", "", "", "", "", "", "非常によく当てはまる"] };
 
     // --- Colors ---
     const P = { bg: "linear-gradient(135deg,#0A1628 0%,#1A2744 30%,#1E3A5F 60%,#162D50 100%)", bgSolid: "#0F1F3D", card: "rgba(255,255,255,0.07)", cardSolid: "#162844", pri: "#5B8AF0", priL: "#7BA4F7", acc: "#E8A44A", accL: "rgba(232,164,74,0.2)", txt: "#E8ECF2", mut: "#8899B3", bdr: "rgba(255,255,255,0.12)", sel: "#5B8AF0", selBg: "rgba(91,138,240,0.15)", err: "#F07070", secBg: "rgba(255,255,255,0.04)" };
@@ -84,7 +85,7 @@
         title: "§4.", inst: "以下は、人の考え方や信念を表す文章です。それぞれの文章について、あなた自身にどの程度あてはまるかを、できるだけ直感的かつ正確にお答えください。",
         scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかと言えば当てはまらない", "4：どちらかと言えば当てはまる", "5：やや当てはまる", "6：非常に当てはまる"],
         scale: L6, items: [
-          { id: "q46", t: "楽しい時間を過ごすことは大切だと思う。" }, { id: "q47", t: "楽しむことは、私の人生においてとても重要だ。" }, { id: "q48", t: "何をしていても、楽しもうとする。" }, { id: "q49", t: "どんな活動でも、自分なりに楽しくすることができる。" }, { id: "q50", t: "たいていの状況で、楽しみを見つけることができる。" }, { id: "q51", t: "その場で楽しいことを始めるのは、たいてい自分だ。" }, { id: "q52", t: "他の人が始めた楽しいことを喜んで受け入れる。" }, { id: "q53", t: "誰かが楽しいことを始めたら、喜んで一緒に加わる。" }, { id: "q54", t: "他の人が始めた楽しいことを楽しめる。" }, { id: "q55", t: "何かしたいと思ったら、他の人にどう思われるかで止めることはあまりない。" }, { id: "q56", t: "結果を気にせずに行動できることがある。" }, { id: "q57", t: "社会のルールは理解しているが、たいていの場合それに縛られない。" }, { id: "q58", t: "ばかげたことをしても、何かを失うとは思わない。" }, { id: "q59", t: "いつもルールに従うわけではない。" }, { id: "q60", t: "計画にないことをよくする。" }, { id: "q61", t: "その場の思いつきで行動することがよくある。" }, { id: "q62", t: "衝動的に行動することがよくある。" }, { id: "q63", t: "そのときの気分にまかせて動くことがよくある。" }, { id: "q64", t: "ふと浮かんだ考えをそのまま追いかけることがよくある。" },
+          { id: "q46", t: "楽しい時間を過ごすことは大切だと思う。" }, { id: "q47", t: "人生において，楽しむことはとても重要だ。" }, { id: "q48", t: "何をしているときでも，楽しむことを心がけている。" }, { id: "q49", t: "自分から率先して楽しいことを始めることが多い。" }, { id: "q50", t: "どんな活動でも，自分が楽しめるように工夫する。" }, { id: "q51", t: "ほとんどの状況に楽しさを見出すことができる。" }, { id: "q52", t: "他の人が始めた楽しいことを好意的に受け止める。" }, { id: "q53", t: "誰かが面白そうなことを始めたら，喜んでそれに加わる。" }, { id: "q54", t: "周りの人が始めた面白いことを自分も楽しむ。" }, { id: "q55", t: "社会的なルールを理解したうえで，それにしばられすぎない。" }, { id: "q56", t: "規則にとらわれすぎない。" }, { id: "q57", t: "ときには，結果を恐れずに行動できる。" }, { id: "q58", t: "やりたいことがあれば，周りの目を気にしないで実行する。" }, { id: "q59", t: "おどけた振る舞いをして損をすることは怖くない。" }, { id: "q60", t: "その場の思いつきで行動することがよくある。" }, { id: "q61", t: "あらかじめ予定していなかったことをすることが多い。" }, { id: "q62", t: "湧き上がる気持ちに動かされて行動することが多い。" }, { id: "q63", t: "ふと浮かんだ考えのまま動くことがよくある。" }, { id: "q64", t: "そのときに感じた気持ちに従うことが多い。" },
         ]
       },
     };
@@ -108,18 +109,72 @@
           { id: "q23", t: "他者への接し方に変化を感じた。" }, { id: "q24", t: "自分の意思で決定できる自由さに変化を感じた。" }, { id: "q25", t: "人生について他者に教えられる価値が自分にあるという信念に変化を感じた。" }, { id: "q26", t: "他人が望む自分ではなく、本来の自分でいられるかどうかに変化を感じた。" }, { id: "q27", t: "問題に取り組み、あきらめずに対処する態度に変化を感じた。" }, { id: "q28", t: "人生に意味を見いだせるかどうかに変化を感じた。" }, { id: "q29", t: "他者に手を差し伸べ、助けようとする気持ちに変化を感じた。" }, { id: "q30", t: "自分に対する自信に変化を感じた。" }, { id: "q31", t: "他者が話しているときに耳を傾ける態度に変化を感じた。" }, { id: "q32", t: "新しい情報や考えに対して開かれているかどうかに変化を感じた。" }, { id: "q33", t: "他者と率直にコミュニケーションしようとする態度に変化を感じた。" }, { id: "q34", t: "世界に何らかの影響を与えたいという欲求に変化を感じた。" }, { id: "q35", t: "他者に助けを求めてもよいという信念に変化を感じた。" }, { id: "q36", t: "自分の権利を主張する気持ちに変化を感じた。" }, { id: "q37", t: "自分を気にかけてくれる人の数についての信念に変化を感じた。" },
         ]
       },
-      arcs: {
-        title: "§4.", inst: "以下の各文について、このゲームを用いた教育プログラム（本ゲーム）が、あなたの学習への動機づけや取り組みの維持にどの程度役立ったかをお答えください。", scale: L7, items: [
-          { id: "q38", t: "本ゲームのクオリティが、注意を引きつけるのに役立った。" }, { id: "q39", t: "本ゲームにおける情報の提示の仕方が、注意を持続させるのに役立った。" }, { id: "q40", t: "本ゲームの場面、課題、演出などの多様さが、注意を持続させるのに役立った。" }, { id: "q41", t: "本ゲームの内容が、自分がすでに知っていることとどう関連しているかが明確だった。" }, { id: "q42", t: "本ゲームの内容と表現のしかたから、この学習に取り組む価値があると感じられた。" }, { id: "q43", t: "本ゲームの内容は自分にとって役立つものだった。" }, { id: "q44", t: "本ゲームに取り組む中で、学習内容をうまく身につけられると自信が持てた。" }, { id: "q45", t: "本ゲームにしばらく取り組んだ後、課題をやり遂げられると自信が持てた。" }, { id: "q46", t: "本ゲームの内容がよく整理されていたので、学習内容を習得できると自信が持てた。" }, { id: "q47", t: "本ゲームに取り組むのが楽しく、もっと続けたいと感じた。" }, { id: "q48", t: "本ゲームに取り組むのはとても楽しかった。" }, { id: "q49", t: "このようによくできたゲームに取り組めたことは喜ばしかった。" },
+      ioself: {
+        title: "§4.", inst: "以下の文章は、自分自身の人生に対する考えを表しています。それぞれについて、あなた自身にどの程度当てはまるかをお答えください。",
+        scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかといえば当てはまらない", "4：どちらともいえない", "5：どちらかといえば当てはまる", "6：やや当てはまる", "7：非常によく当てはまる"],
+        scale: L7A, items: [
+          { id: "q38", t: "自分の人生で起きた出来事を、必然のものとして受け入れられるようになってきた。" },
+          { id: "q39", t: "自分の人生のさまざまな出来事の中に、一本の意味の糸が通っているのを感じる。" },
+          { id: "q40", t: "自分が経験した苦しみにも、意味があったと思う。" },
+        ]
+      },
+      emot: {
+        title: "§5.", inst: "このゲームをプレイして、以下の感情をどの程度感じましたか。最もよく当てはまる数字をお選びください。",
+        scale: L7A, items: [
+          { id: "q41", t: "悲しい気持ちになった。" },
+          { id: "q42", t: "胸が締め付けられるような気持ちになった。" },
+          { id: "q43", t: "不安や恐れを感じた。" },
+          { id: "q44", t: "大切なものへの感謝を感じた。" },
+          { id: "q45", t: "ゲームの登場人物や状況に共感した。" },
+          { id: "q46", t: "ゲームの体験が心に響いた。" },
+          { id: "q47", t: "懐かしい気持ちになった。" },
+          { id: "q48", t: "ゲームの世界に引き込まれた。" },
+        ]
+      },
+      refl: {
+        title: "§6.", inst: "このゲームをプレイした後、以下のことはどの程度あてはまりますか。最もよく当てはまる数字をお選びください。",
+        scale: L7A, items: [
+          { id: "q49", t: "ゲームの体験から、何か意味を見出せるかどうかについて考えた。" },
+          { id: "q50", t: "ゲームの体験を通じて、自分が何か学べたかどうかについて考えた。" },
+          { id: "q51", t: "ゲームの体験が、自分の世界観や信念を変えたかどうかについて考えた。" },
+          { id: "q52", t: "ゲームの体験が、自分のこれからにとってどんな意味を持つかについて考えた。" },
+          { id: "q53", t: "ゲームの体験が自分にどのような影響を与えたかについて、意図的に考えた。" },
         ]
       },
       gameHabits: [
-        { id: "q50", type: "radio", label: "週に何日くらいゲームをプレイしますか。（ゲーム：スマートフォン・PC・ゲーム機など）", opts: ["まったくプレイしない", "週に1日未満（ごくまれにプレイする）", "週に1〜2日", "週に3〜4日", "週に5〜6日", "毎日（週7日）", "わからない"] },
-        { id: "q51", type: "radio", label: "（ゲームをする日は）1日あたり平均してどのくらいの時間プレイしますか。", opts: ["まったくプレイしない", "少しだけプレイする", "約30分", "約1時間", "約2時間", "約3時間", "4時間以上", "わからない"] },
-        { id: "q52", type: "text", label: "プレイしているゲームがあればタイトルを教えてください（略記・複数可）。", hint: "（特になければ空欄で構いません）" }
+        { id: "q54", type: "radio", label: "週に何日くらいゲームをプレイしますか。（ゲーム：スマートフォン・PC・ゲーム機など）", opts: ["まったくプレイしない", "週に1日未満（ごくまれにプレイする）", "週に1〜2日", "週に3〜4日", "週に5〜6日", "毎日（週7日）", "わからない"] },
+        { id: "q55", type: "radio", label: "（ゲームをする日は）1日あたり平均してどのくらいの時間プレイしますか。", opts: ["まったくプレイしない", "少しだけプレイする", "約30分", "約1時間", "約2時間", "約3時間", "4時間以上", "わからない"] },
+        { id: "q56", type: "text", label: "プレイしているゲームがあればタイトルを教えてください（略記・複数可）。", hint: "（特になければ空欄で構いません）" }
       ],
-      open: [{ id: "q53", type: "textarea", label: "今回ご体験いただいたゲームや、それに伴う一連の活動に対するご感想・ご意見をお聞かせください。", ph: "自由にご記入ください" }],
+      open: [{ id: "q57", type: "textarea", label: "今回ご体験いただいたゲームや、それに伴う一連の活動に対するご感想・ご意見をお聞かせください。", ph: "自由にご記入ください" }],
     };
+
+    // --- Shuffle utilities ---
+    function shuffleArray(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function getShuffledItems(key, items) {
+      try {
+        const saved = localStorage.getItem(key);
+        if (saved) {
+          const order = JSON.parse(saved);
+          if (Array.isArray(order) && order.length === items.length) {
+            return order.map(i => items[i]);
+          }
+        }
+        const indices = shuffleArray(items.map((_, i) => i));
+        localStorage.setItem(key, JSON.stringify(indices));
+        return indices.map(i => items[i]);
+      } catch (e) {
+        return shuffleArray(items);
+      }
+    }
 
     // --- Send to Google Sheets ---
     async function sendToSheets(type, answers, ts) {
@@ -162,7 +217,8 @@
       </div>;
     }
 
-    function SS({ section, answers, set }) {
+    function SS({ section, storageKey, answers, set }) {
+      const [items] = useState(() => getShuffledItems(storageKey, section.items));
       return <div style={{ marginBottom: 32 }}>
         <div style={{ background: "linear-gradient(90deg,#1E3A6E,#2B5EA7)", color: "#fff", padding: "16px 24px", borderRadius: "10px 10px 0 0", fontFamily: "'Noto Serif JP',serif" }}><h2 style={{ margin: 0, fontSize: 17, fontWeight: 600 }}>{section.title}</h2></div>
         <div style={{ background: P.card, border: `1px solid ${P.bdr}`, borderTop: "none", borderRadius: "0 0 10px 10px", padding: "8px 24px 16px" }}>
@@ -170,7 +226,7 @@
           {section.scaleNote && <div style={{ display: "flex", flexDirection: "column", gap: 2, fontSize: 12, color: P.mut, background: P.secBg, borderRadius: 6, padding: "8px 12px", margin: "0 0 8px" }}>
             {section.scaleNote.map((n, i) => <span key={i}>{n}</span>)}
           </div>}
-          {section.items.map((it, idx) => <SQ key={it.id} item={it} scale={section.scale} value={answers[it.id]} onChange={v => set(it.id, v)} displayNum={idx + 1} />)}
+          {items.map((it, idx) => <SQ key={it.id} item={it} scale={section.scale} value={answers[it.id]} onChange={v => set(it.id, v)} displayNum={idx + 1} />)}
         </div>
       </div>;
     }
@@ -286,14 +342,15 @@
       </div>;
     }
 
-    function DQ({ q, value, onChange, ov, onOv }) {
+    function DQ({ q, value, onChange, ov, onOv, displayNum }) {
+      const label = displayNum ? `${displayNum}.` : q.id.toUpperCase();
       const fs = { width: "100%", padding: "10px 14px", border: `1.5px solid ${P.bdr}`, borderRadius: 8, fontSize: 15, fontFamily: "'Noto Sans JP',sans-serif", background: "rgba(255,255,255,0.08)", color: P.txt, outline: "none", boxSizing: "border-box", transition: "border-color 0.2s" };
       if (q.type === "code") return <div style={{ marginBottom: 24 }}>
         <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 12, lineHeight: 1.7, fontWeight: 500 }}>{q.label}</label>
         <CodeGen value={value} onChange={onChange} isPost={q.isPost} />
       </div>;
       if (q.type === "text" || q.type === "number") return <div style={{ marginBottom: 24 }}>
-        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 8, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.id.toUpperCase()}</span>{q.label}</label>
+        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 8, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{label}</span>{q.label}</label>
         {q.hint && <p style={{ fontSize: 12, color: P.mut, margin: "-4px 0 8px" }}>{q.hint}</p>}
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <input type={q.type === "number" ? "number" : "text"} value={value || ""} onChange={e => onChange(e.target.value)} placeholder={q.ph} style={{ ...fs, maxWidth: q.type === "number" ? 120 : 300 }} onFocus={e => e.target.style.borderColor = P.pri} onBlur={e => e.target.style.borderColor = P.bdr} />
@@ -301,11 +358,11 @@
         </div>
       </div>;
       if (q.type === "textarea") return <div style={{ marginBottom: 24 }}>
-        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 8, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.id.toUpperCase()}</span>{q.label}</label>
+        <label style={{ display: "block", fontSize: 15, color: P.txt, marginBottom: 8, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{label}</span>{q.label}</label>
         <textarea value={value || ""} onChange={e => onChange(e.target.value)} placeholder={q.ph} rows={5} style={{ ...fs, resize: "vertical", minHeight: 100 }} onFocus={e => e.target.style.borderColor = P.pri} onBlur={e => e.target.style.borderColor = P.bdr} />
       </div>;
       if (q.type === "radio") return <div style={{ marginBottom: 24 }}>
-        <p style={{ fontSize: 15, color: P.txt, marginBottom: 10, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{q.id.toUpperCase()}</span>{q.label}</p>
+        <p style={{ fontSize: 15, color: P.txt, marginBottom: 10, lineHeight: 1.7 }}><span style={{ color: P.acc, fontWeight: 600, marginRight: 8, fontSize: 13 }}>{label}</span>{q.label}</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
           {q.opts.map((o, i) => {
             const s = value === o; return <label key={i} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 14px", borderRadius: 8, cursor: "pointer", transition: "all 0.15s", background: s ? P.selBg : "transparent", border: `1.5px solid ${s ? P.pri : "transparent"}`, fontSize: 14 }}>
@@ -350,7 +407,7 @@
       const cnt = () => Object.keys(ans).filter(k => { const v = ans[k]; if (Array.isArray(v)) return v.length > 0; return v !== undefined && v !== null && v !== "" }).length;
       const tot = () => {
         if (view === "pre") return PRE.demo.length + PRE.swls.items.length + PRE.cses.items.length + PRE.srgs.items.length + PRE.apts.items.length;
-        if (view === "post") return POST.code.length + POST.swls.items.length + POST.cses.items.length + POST.srgs.items.length + POST.arcs.items.length + POST.gameHabits.length + POST.open.length;
+        if (view === "post") return POST.code.length + POST.swls.items.length + POST.cses.items.length + POST.srgs.items.length + POST.ioself.items.length + POST.emot.items.length + POST.refl.items.length + POST.gameHabits.length + POST.open.length;
         return 1;
       };
       const reqIds = () => {
@@ -414,8 +471,8 @@
               onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(91,138,240,0.35)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.2)"; e.currentTarget.style.background = "linear-gradient(135deg,rgba(91,138,240,0.15),rgba(43,94,167,0.2))" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div><h3 style={{ fontFamily: "'Noto Sans JP',sans-serif", fontSize: 17, color: "rgba(255,255,255,0.85)", margin: "0 0 6px", fontWeight: 500 }}>ゲーム体験後のご質問</h3>
-                  <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", margin: 0, lineHeight: 1.6 }}>人生満足度、コーピング、成長、学習動機づけに関する質問</p>
-                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：5〜10分　|　全53問</p></div>
+                  <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", margin: 0, lineHeight: 1.6 }}>人生満足度、コーピング、成長、感情体験、内省に関する質問</p>
+                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：5〜10分　|　全57問</p></div>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B8AF0" strokeWidth="2.5"><path d="M9 18l6-6-6-6" /></svg>
               </div>
             </button>
@@ -472,20 +529,22 @@
           </div>
 
           {isPre ? <>
-            <div id="f-q10"><SS section={PRE.swls} answers={ans} set={sa} /></div>
-            <div id="f-q18"><SS section={PRE.cses} answers={ans} set={sa} /></div>
-            <div id="f-q31"><SS section={PRE.srgs} answers={ans} set={sa} /></div>
-            <div id="f-q46"><SS section={PRE.apts} answers={ans} set={sa} /></div>
+            <div id="f-q10"><SS section={PRE.swls} storageKey="survey_order_pre_swls" answers={ans} set={sa} /></div>
+            <div id="f-q18"><SS section={PRE.cses} storageKey="survey_order_pre_cses" answers={ans} set={sa} /></div>
+            <div id="f-q31"><SS section={PRE.srgs} storageKey="survey_order_pre_srgs" answers={ans} set={sa} /></div>
+            <div id="f-q46"><SS section={PRE.apts} storageKey="survey_order_pre_apts" answers={ans} set={sa} /></div>
           </> : <>
-            <div id="f-q2"><SS section={POST.swls} answers={ans} set={sa} /></div>
-            <div id="f-q10"><SS section={POST.cses} answers={ans} set={sa} /></div>
-            <div id="f-q23"><SS section={POST.srgs} answers={ans} set={sa} /></div>
-            <div id="f-q38"><SS section={POST.arcs} answers={ans} set={sa} /></div>
+            <div id="f-q2"><SS section={POST.swls} storageKey="survey_order_post_swls" answers={ans} set={sa} /></div>
+            <div id="f-q10"><SS section={POST.cses} storageKey="survey_order_post_cses" answers={ans} set={sa} /></div>
+            <div id="f-q23"><SS section={POST.srgs} storageKey="survey_order_post_srgs" answers={ans} set={sa} /></div>
+            <div id="f-q38"><SS section={POST.ioself} storageKey="survey_order_post_ioself" answers={ans} set={sa} /></div>
+            <div id="f-q41"><SS section={POST.emot} storageKey="survey_order_post_emot" answers={ans} set={sa} /></div>
+            <div id="f-q49"><SS section={POST.refl} storageKey="survey_order_post_refl" answers={ans} set={sa} /></div>
             <div style={{ marginBottom: 32 }}>
-              <div style={{ background: "linear-gradient(90deg,#1E3A6E,#2B5EA7)", color: "#fff", padding: "16px 24px", borderRadius: "10px 10px 0 0", fontFamily: "'Noto Serif JP',serif" }}><h2 style={{ margin: 0, fontSize: 17, fontWeight: 600 }}>§5.</h2></div>
+              <div style={{ background: "linear-gradient(90deg,#1E3A6E,#2B5EA7)", color: "#fff", padding: "16px 24px", borderRadius: "10px 10px 0 0", fontFamily: "'Noto Serif JP',serif" }}><h2 style={{ margin: 0, fontSize: 17, fontWeight: 600 }}>§7.</h2></div>
               <div style={{ background: P.card, border: `1px solid ${P.bdr}`, borderTop: "none", borderRadius: "0 0 10px 10px", padding: "8px 24px 16px" }}>
                 <p style={{ fontSize: 14, color: "#fff", lineHeight: 1.8, margin: "12px 0 8px" }}>以下の質問は、あなたの普段のゲームプレイについてたずねるものです。ゲームをしない方も含め、正直にお答えください。</p>
-                {POST.gameHabits.map(q => <div key={q.id} id={`f-${q.id}`}><DQ q={q} value={ans[q.id]} onChange={v => sa(q.id, v)} /></div>)}
+                {POST.gameHabits.map((q, idx) => <div key={q.id} id={`f-${q.id}`}><DQ q={q} value={ans[q.id]} onChange={v => sa(q.id, v)} displayNum={idx + 1} /></div>)}
               </div>
             </div>
             <div style={{ background: P.card, border: `1px solid ${P.bdr}`, borderRadius: 10, padding: "20px 24px", marginBottom: 32 }}>

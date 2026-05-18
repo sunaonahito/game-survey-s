@@ -505,10 +505,28 @@
 
       // DONE
       if (done) return <div style={{ minHeight: "100vh", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
-        <div style={{ textAlign: "center", padding: "60px 24px" }}>
+        <div style={{ textAlign: "center", padding: "60px 24px", maxWidth: 600 }}>
           <div style={{ fontSize: 48, marginBottom: 16 }}>✓</div>
           <h2 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: 22, color: P.pri, marginBottom: 12 }}>ご回答ありがとうございました</h2>
-          <p style={{ fontSize: 15, color: P.mut, lineHeight: 1.8, maxWidth: 400, margin: "0 auto 20px" }}>{view === "pre" ? "ゲーム体験前のご質問への回答が完了しました。データは正常に記録されました。" : "ゲーム体験後のご質問への回答が完了しました。ご協力ありがとうございました。"}</p>
+          {view === "pre" ? <p style={{ fontSize: 15, color: P.mut, lineHeight: 1.8, maxWidth: 400, margin: "0 auto 20px" }}>ゲーム体験前のご質問への回答が完了しました。データは正常に記録されました。</p> : <div style={{ textAlign: "left", margin: "0 auto 28px" }}>
+            <p style={{ fontSize: 15, color: P.mut, lineHeight: 1.8, marginBottom: 20 }}>「あなたは何を選ぶ？―ゲームで体験する喪失と生の価値」の体験お疲れ様でした</p>
+            <div style={{ borderTop: `1px solid ${P.bdr}`, margin: "0 0 20px" }}></div>
+            <p style={{ fontSize: 14, color: P.mut, lineHeight: 1.9, marginBottom: 16 }}>今回、ゲームを体験をされた方に、もう一方のゲームも自由にお楽しみいただける機会をご用意しました。以下のURLからそれぞれのゲームを体験することができます。</p>
+            <div style={{ background: "rgba(91,138,240,0.08)", border: `1px solid rgba(91,138,240,0.2)`, borderRadius: 10, padding: "18px 20px", marginBottom: 16 }}>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.9)", fontWeight: 700, marginBottom: 8 }}>■ Straying（ノベルゲーム）</p>
+              <a href="https://solventer.jp/straying" target="_blank" rel="noopener" style={{ fontSize: 13, color: P.pri, wordBreak: "break-all" }}>https://solventer.jp/straying</a>
+              <p style={{ fontSize: 14, color: "rgba(255,255,255,0.9)", fontWeight: 700, marginTop: 16, marginBottom: 8 }}>■ Dice of Destiny（ダイスゲーム）</p>
+              <a href="https://sunaonahito.github.io/dice-of-destiny-online3" target="_blank" rel="noopener" style={{ fontSize: 13, color: P.pri, wordBreak: "break-all" }}>https://sunaonahito.github.io/dice-of-destiny-online3</a>
+            </div>
+            <div style={{ background: "rgba(255,255,255,0.04)", border: `1px solid ${P.bdr}`, borderRadius: 10, padding: "18px 20px", marginBottom: 20 }}>
+              <p style={{ fontSize: 13, color: P.mut, fontWeight: 600, marginBottom: 10 }}>その他：以下のバージョンも体験できます</p>
+              <p style={{ fontSize: 13, color: P.mut, marginBottom: 4 }}>■ Dice of Destiny（8bit ver.）</p>
+              <a href="https://sunaonahito.github.io/dice-of-destiny-online2" target="_blank" rel="noopener" style={{ fontSize: 12, color: P.pri, wordBreak: "break-all" }}>https://sunaonahito.github.io/dice-of-destiny-online2</a>
+              <p style={{ fontSize: 13, color: P.mut, marginTop: 12, marginBottom: 4 }}>■ Dice of Destiny（English ver.）</p>
+              <a href="https://emergence-japan.github.io/dice-of-destiny" target="_blank" rel="noopener" style={{ fontSize: 12, color: P.pri, wordBreak: "break-all" }}>https://emergence-japan.github.io/dice-of-destiny</a>
+            </div>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>ゲームデータは収集していません。お時間の許す際にプレイいただけると幸いです。</p>
+          </div>}
           <div><button onClick={reset} style={{ padding: "12px 32px", background: "transparent", color: P.pri, border: `2px solid ${P.pri}`, borderRadius: 8, fontSize: 14, cursor: "pointer", fontWeight: 600, transition: "all 0.2s" }}
             onMouseEnter={e => { e.target.style.background = P.pri; e.target.style.color = "#fff" }} onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.color = P.pri }}>トップに戻る</button></div>
         </div>

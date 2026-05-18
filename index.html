@@ -66,9 +66,21 @@
       ],
       swls: {
         title: "§1.", inst: "以下の各文について、あなたの考えに最も近い数字をお選びください。正解や不正解はありません。感じたままに正直にお答えください。",
-        scaleNote: ["1：全くそう思わない", "2：そう思わない", "3：ややそう思わない", "4：どちらともいえない", "5：ややそう思う", "6：そう思う", "7：非常にそう思う"],
-        scale: L7, items: [
-          { id: "q10", t: "私は自分の人生に満足している。" }, { id: "q11", t: "私の人生は、とても素晴らしい状態だ。" }, { id: "q12", t: "大体において、私の人生は理想に近い。" }, { id: "q13", t: "私はこれまで、自分の人生に求める大切なものを得てきた。" }, { id: "q14", t: "もう一度人生をやり直せるとしても、ほとんど何も変えないだろう。" }, { id: "q15", t: "私の人生は価値に満ちている。" }, { id: "q16", t: "自分が存在していることには意味がある。" }, { id: "q17", t: "毎日、生きていることに価値があると感じる。" },
+        scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかといえば当てはまらない", "4：どちらともいえない", "5：どちらかといえば当てはまる", "6：やや当てはまる", "7：非常によく当てはまる"],
+        scale: L7A, items: [
+          { id: "q10", t: "私は自分の人生に満足している。" }, { id: "q11", t: "私の人生は、とても素晴らしい状態だ。" }, { id: "q12", t: "大体において、私の人生は理想に近い。" }, { id: "q13", t: "私はこれまで、自分の人生に求める大切なものを得てきた。" }, { id: "q14", t: "もう一度人生をやり直せるとしても、ほとんど何も変えないだろう。" },
+        ]
+      },
+      sig: {
+        title: "§4.", inst: "以下の文章は、あなたの人生に対する考えを表しています。それぞれについて、あなた自身にどの程度当てはまるかをお答えください。",
+        scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかといえば当てはまらない", "4：どちらともいえない", "5：どちらかといえば当てはまる", "6：やや当てはまる", "7：非常によく当てはまる"],
+        scale: L7A, items: [
+          { id: "q15", t: "私の人生は価値あるものである。" },
+          { id: "q16", t: "私の個人的な存在は重要である。" },
+          { id: "q17", t: "私は毎日、人生は生きるに値するという感覚を味わっている。" },
+          { id: "q65", t: "自分の人生で起きた出来事を、必然のものとして受け入れられるようになってきた。" },
+          { id: "q66", t: "自分の人生のさまざまな出来事の中に、一本の意味の糸が通っているのを感じる。" },
+          { id: "q67", t: "自分が経験した苦しみにも、意味があったと思う。" },
         ]
       },
       cses: {
@@ -82,7 +94,7 @@
         ]
       },
       apts: {
-        title: "§4.", inst: "以下は、人の考え方や信念を表す文章です。それぞれの文章について、あなた自身にどの程度あてはまるかを、できるだけ直感的かつ正確にお答えください。",
+        title: "§5.", inst: "以下は、人の考え方や信念を表す文章です。それぞれの文章について、あなた自身にどの程度あてはまるかを、できるだけ直感的かつ正確にお答えください。",
         scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかと言えば当てはまらない", "4：どちらかと言えば当てはまる", "5：やや当てはまる", "6：非常に当てはまる"],
         scale: L6, items: [
           { id: "q46", t: "楽しい時間を過ごすことは大切だと思う。" }, { id: "q47", t: "人生において，楽しむことはとても重要だ。" }, { id: "q48", t: "何をしているときでも，楽しむことを心がけている。" }, { id: "q49", t: "自分から率先して楽しいことを始めることが多い。" }, { id: "q50", t: "どんな活動でも，自分が楽しめるように工夫する。" }, { id: "q51", t: "ほとんどの状況に楽しさを見出すことができる。" }, { id: "q52", t: "他の人が始めた楽しいことを好意的に受け止める。" }, { id: "q53", t: "誰かが面白そうなことを始めたら，喜んでそれに加わる。" }, { id: "q54", t: "周りの人が始めた面白いことを自分も楽しむ。" }, { id: "q55", t: "社会的なルールを理解したうえで，それにしばられすぎない。" }, { id: "q56", t: "規則にとらわれすぎない。" }, { id: "q57", t: "ときには，結果を恐れずに行動できる。" }, { id: "q58", t: "やりたいことがあれば，周りの目を気にしないで実行する。" }, { id: "q59", t: "おどけた振る舞いをして損をすることは怖くない。" }, { id: "q60", t: "その場の思いつきで行動することがよくある。" }, { id: "q61", t: "あらかじめ予定していなかったことをすることが多い。" }, { id: "q62", t: "湧き上がる気持ちに動かされて行動することが多い。" }, { id: "q63", t: "ふと浮かんだ考えのまま動くことがよくある。" }, { id: "q64", t: "そのときに感じた気持ちに従うことが多い。" },
@@ -94,9 +106,21 @@
       code: [{ id: "q1", type: "code", label: "匿名コードを確認してください。", isPost: true }],
       swls: {
         title: "§1.", inst: "以下の各文について、あなたの考えに最も近い数字をお選びください。正解や不正解はありません。感じたままに正直にお答えください。",
-        scaleNote: ["1：全くそう思わない", "2：そう思わない", "3：ややそう思わない", "4：どちらともいえない", "5：ややそう思う", "6：そう思う", "7：非常にそう思う"],
-        scale: L7, items: [
-          { id: "q2", t: "私は自分の人生に満足している。" }, { id: "q3", t: "私の人生は、とても素晴らしい状態だ。" }, { id: "q4", t: "大体において、私の人生は理想に近い。" }, { id: "q5", t: "私はこれまで、自分の人生に求める大切なものを得てきた。" }, { id: "q6", t: "もう一度人生をやり直せるとしても、ほとんど何も変えないだろう。" }, { id: "q7", t: "私の人生は価値に満ちている。" }, { id: "q8", t: "自分が存在していることには意味がある。" }, { id: "q9", t: "毎日、生きていることに価値があると感じる。" },
+        scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかといえば当てはまらない", "4：どちらともいえない", "5：どちらかといえば当てはまる", "6：やや当てはまる", "7：非常によく当てはまる"],
+        scale: L7A, items: [
+          { id: "q2", t: "私は自分の人生に満足している。" }, { id: "q3", t: "私の人生は、とても素晴らしい状態だ。" }, { id: "q4", t: "大体において、私の人生は理想に近い。" }, { id: "q5", t: "私はこれまで、自分の人生に求める大切なものを得てきた。" }, { id: "q6", t: "もう一度人生をやり直せるとしても、ほとんど何も変えないだろう。" },
+        ]
+      },
+      sig: {
+        title: "§4.", inst: "以下の文章は、あなたの人生に対する考えを表しています。それぞれについて、あなた自身にどの程度当てはまるかをお答えください。",
+        scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかといえば当てはまらない", "4：どちらともいえない", "5：どちらかといえば当てはまる", "6：やや当てはまる", "7：非常によく当てはまる"],
+        scale: L7A, items: [
+          { id: "q7", t: "私の人生は価値あるものである。" },
+          { id: "q8", t: "私の個人的な存在は重要である。" },
+          { id: "q9", t: "私は毎日、人生は生きるに値するという感覚を味わっている。" },
+          { id: "q38", t: "自分の人生で起きた出来事を、必然のものとして受け入れられるようになってきた。" },
+          { id: "q39", t: "自分の人生のさまざまな出来事の中に、一本の意味の糸が通っているのを感じる。" },
+          { id: "q40", t: "自分が経験した苦しみにも、意味があったと思う。" },
         ]
       },
       cses: {
@@ -107,15 +131,6 @@
       srgs: {
         title: "§3.", inst: "あなたがこれまでに経験したストレスフルな出来事をひとつ思い描いてください。あなたが経験した結果、どのような変化があったのかをお答えください。変化がなかった場合は0（変化なし）を選んでください。", scale: S7, items: [
           { id: "q23", t: "他者への接し方に変化を感じた。" }, { id: "q24", t: "自分の意思で決定できる自由さに変化を感じた。" }, { id: "q25", t: "人生について他者に教えられる価値が自分にあるという信念に変化を感じた。" }, { id: "q26", t: "他人が望む自分ではなく、本来の自分でいられるかどうかに変化を感じた。" }, { id: "q27", t: "問題に取り組み、あきらめずに対処する態度に変化を感じた。" }, { id: "q28", t: "人生に意味を見いだせるかどうかに変化を感じた。" }, { id: "q29", t: "他者に手を差し伸べ、助けようとする気持ちに変化を感じた。" }, { id: "q30", t: "自分に対する自信に変化を感じた。" }, { id: "q31", t: "他者が話しているときに耳を傾ける態度に変化を感じた。" }, { id: "q32", t: "新しい情報や考えに対して開かれているかどうかに変化を感じた。" }, { id: "q33", t: "他者と率直にコミュニケーションしようとする態度に変化を感じた。" }, { id: "q34", t: "世界に何らかの影響を与えたいという欲求に変化を感じた。" }, { id: "q35", t: "他者に助けを求めてもよいという信念に変化を感じた。" }, { id: "q36", t: "自分の権利を主張する気持ちに変化を感じた。" }, { id: "q37", t: "自分を気にかけてくれる人の数についての信念に変化を感じた。" },
-        ]
-      },
-      ioself: {
-        title: "§4.", inst: "以下の文章は、自分自身の人生に対する考えを表しています。それぞれについて、あなた自身にどの程度当てはまるかをお答えください。",
-        scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかといえば当てはまらない", "4：どちらともいえない", "5：どちらかといえば当てはまる", "6：やや当てはまる", "7：非常によく当てはまる"],
-        scale: L7A, items: [
-          { id: "q38", t: "自分の人生で起きた出来事を、必然のものとして受け入れられるようになってきた。" },
-          { id: "q39", t: "自分の人生のさまざまな出来事の中に、一本の意味の糸が通っているのを感じる。" },
-          { id: "q40", t: "自分が経験した苦しみにも、意味があったと思う。" },
         ]
       },
       emot: {
@@ -406,8 +421,8 @@
 
       const cnt = () => Object.keys(ans).filter(k => { const v = ans[k]; if (Array.isArray(v)) return v.length > 0; return v !== undefined && v !== null && v !== "" }).length;
       const tot = () => {
-        if (view === "pre") return PRE.demo.length + PRE.swls.items.length + PRE.cses.items.length + PRE.srgs.items.length + PRE.apts.items.length;
-        if (view === "post") return POST.code.length + POST.swls.items.length + POST.cses.items.length + POST.srgs.items.length + POST.ioself.items.length + POST.emot.items.length + POST.refl.items.length + POST.gameHabits.length + POST.open.length;
+        if (view === "pre") return PRE.demo.length + PRE.swls.items.length + PRE.cses.items.length + PRE.srgs.items.length + PRE.sig.items.length + PRE.apts.items.length;
+        if (view === "post") return POST.code.length + POST.swls.items.length + POST.cses.items.length + POST.srgs.items.length + POST.sig.items.length + POST.emot.items.length + POST.refl.items.length + POST.gameHabits.length + POST.open.length;
         return 1;
       };
       const reqIds = () => {
@@ -449,7 +464,7 @@
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <div><h3 style={{ fontFamily: "'Noto Sans JP',sans-serif", fontSize: 17, color: "rgba(255,255,255,0.85)", margin: "0 0 6px", fontWeight: 500 }}>ゲーム体験前のご質問</h3>
                   <p style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", margin: 0, lineHeight: 1.6 }}>人生満足度、コーピング、成長、プレイフルネスに関する質問</p>
-                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：5〜10分　|　全64問</p></div>
+                  <p style={{ fontSize: 12, color: P.acc, margin: "6px 0 0", fontWeight: 500 }}>推定時間：5〜10分　|　全67問</p></div>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B8AF0" strokeWidth="2.5"><path d="M9 18l6-6-6-6" /></svg>
               </div>
             </button>
@@ -532,12 +547,13 @@
             <div id="f-q10"><SS section={PRE.swls} storageKey="survey_order_pre_swls" answers={ans} set={sa} /></div>
             <div id="f-q18"><SS section={PRE.cses} storageKey="survey_order_pre_cses" answers={ans} set={sa} /></div>
             <div id="f-q31"><SS section={PRE.srgs} storageKey="survey_order_pre_srgs" answers={ans} set={sa} /></div>
+            <div id="f-q15"><SS section={PRE.sig} storageKey="survey_order_pre_sig" answers={ans} set={sa} /></div>
             <div id="f-q46"><SS section={PRE.apts} storageKey="survey_order_pre_apts" answers={ans} set={sa} /></div>
           </> : <>
             <div id="f-q2"><SS section={POST.swls} storageKey="survey_order_post_swls" answers={ans} set={sa} /></div>
             <div id="f-q10"><SS section={POST.cses} storageKey="survey_order_post_cses" answers={ans} set={sa} /></div>
             <div id="f-q23"><SS section={POST.srgs} storageKey="survey_order_post_srgs" answers={ans} set={sa} /></div>
-            <div id="f-q38"><SS section={POST.ioself} storageKey="survey_order_post_ioself" answers={ans} set={sa} /></div>
+            <div id="f-q7"><SS section={POST.sig} storageKey="survey_order_post_sig" answers={ans} set={sa} /></div>
             <div id="f-q41"><SS section={POST.emot} storageKey="survey_order_post_emot" answers={ans} set={sa} /></div>
             <div id="f-q49"><SS section={POST.refl} storageKey="survey_order_post_refl" answers={ans} set={sa} /></div>
             <div style={{ marginBottom: 32 }}>

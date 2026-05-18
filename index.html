@@ -73,7 +73,6 @@
       },
       sig: {
         title: "§4.", inst: "以下の文章は、あなたの人生に対する考えを表しています。それぞれについて、あなた自身にどの程度当てはまるかをお答えください。",
-        scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかといえば当てはまらない", "4：どちらともいえない", "5：どちらかといえば当てはまる", "6：やや当てはまる", "7：非常によく当てはまる"],
         scale: L7A, items: [
           { id: "q15", t: "私の人生は価値あるものである。" },
           { id: "q16", t: "私の個人的な存在は重要である。" },
@@ -113,7 +112,6 @@
       },
       sig: {
         title: "§4.", inst: "以下の文章は、あなたの人生に対する考えを表しています。それぞれについて、あなた自身にどの程度当てはまるかをお答えください。",
-        scaleNote: ["1：全く当てはまらない", "2：あまり当てはまらない", "3：どちらかといえば当てはまらない", "4：どちらともいえない", "5：どちらかといえば当てはまる", "6：やや当てはまる", "7：非常によく当てはまる"],
         scale: L7A, items: [
           { id: "q7", t: "私の人生は価値あるものである。" },
           { id: "q8", t: "私の個人的な存在は重要である。" },
@@ -453,7 +451,7 @@
             <p style={{ fontSize: 14, color: "rgba(255,255,255,0.85)", lineHeight: 1.9, textAlign: "left", margin: "0 auto", maxWidth: 500 }}>この質問は，ゲームを用いて人生を省察する体験の影響について確認することを目的としています。</p>
           </div>
           <div style={{ marginBottom: 28, paddingLeft: 4 }}>
-            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.8)", lineHeight: 2.0, margin: "0 0 16px" }}>ここで得られたデータは統計的に処理され，個人情報が公開されることはありません。<br />また，回答は任意であり，回答の有無が授業の内容に影響することはありません。<br />回答結果が評価に影響することもありません。</p>
+            <p style={{ fontSize: 13, color: "rgba(255,255,255,0.8)", lineHeight: 2.0, margin: "0 0 16px" }}>ここで得られたデータは統計的に処理され，個人情報が公開されることはありません。<br />また，回答は任意であり，回答の有無があなたの評価に影響することはありません。<br />回答結果が評価に影響することもありません。</p>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.8)", lineHeight: 2.0, margin: 0 }}>できるだけ多くの方のご協力を必要としております。<br />ご協力の程よろしくお願い申し上げます。</p>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 16, marginBottom: 28 }}>
@@ -507,9 +505,10 @@
       if (done) return <div style={{ minHeight: "100vh", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
         <div style={{ textAlign: "center", padding: "60px 24px", maxWidth: 600 }}>
           <div style={{ fontSize: 48, marginBottom: 16 }}>✓</div>
-          <h2 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: 22, color: P.pri, marginBottom: 12 }}>ご回答ありがとうございました</h2>
+          <h2 style={{ fontFamily: "'Noto Serif JP',serif", fontSize: 22, color: P.pri, marginBottom: 12 }}>{view === "post" ? "ご体験ありがとうございました" : "ご回答ありがとうございました"}</h2>
           {view === "pre" ? <p style={{ fontSize: 15, color: P.mut, lineHeight: 1.8, maxWidth: 400, margin: "0 auto 20px" }}>ゲーム体験前のご質問への回答が完了しました。データは正常に記録されました。</p> : <div style={{ textAlign: "left", margin: "0 auto 28px" }}>
-            <p style={{ fontSize: 15, color: P.mut, lineHeight: 1.8, marginBottom: 20 }}>「あなたは何を選ぶ？―ゲームで体験する喪失と生の価値」の体験お疲れ様でした</p>
+            <p style={{ fontSize: 15, color: P.mut, lineHeight: 1.8, marginBottom: 20 }}>「あなたは何を選ぶ？-ゲームで体験する喪失と生の価値」の体験お疲れ様でした</p>
+            <p style={{ fontSize: 14, color: P.mut, lineHeight: 1.9, marginBottom: 20 }}>この体験が、あなたの健康と幸福の支えとなり<br />より充実した人生の一助となることを願っています</p>
             <div style={{ borderTop: `1px solid ${P.bdr}`, margin: "0 0 20px" }}></div>
             <p style={{ fontSize: 14, color: P.mut, lineHeight: 1.9, marginBottom: 16 }}>今回、ゲームを体験をされた方に、もう一方のゲームも自由にお楽しみいただける機会をご用意しました。以下のURLからそれぞれのゲームを体験することができます。</p>
             <div style={{ background: "rgba(91,138,240,0.08)", border: `1px solid rgba(91,138,240,0.2)`, borderRadius: 10, padding: "18px 20px", marginBottom: 16 }}>
@@ -527,8 +526,9 @@
             </div>
             <p style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", lineHeight: 1.7 }}>ゲームデータは収集していません。お時間の許す際にプレイいただけると幸いです。</p>
           </div>}
-          <div><button onClick={reset} style={{ padding: "12px 32px", background: "transparent", color: P.pri, border: `2px solid ${P.pri}`, borderRadius: 8, fontSize: 14, cursor: "pointer", fontWeight: 600, transition: "all 0.2s" }}
-            onMouseEnter={e => { e.target.style.background = P.pri; e.target.style.color = "#fff" }} onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.color = P.pri }}>トップに戻る</button></div>
+          <div>{view === "post" ? <a href="https://sunaonahito.github.io/Informed-consent/" style={{ display: "inline-block", padding: "12px 32px", background: "transparent", color: P.pri, border: `2px solid ${P.pri}`, borderRadius: 8, fontSize: 14, cursor: "pointer", fontWeight: 600, transition: "all 0.2s", textDecoration: "none" }}
+            onMouseEnter={e => { e.target.style.background = P.pri; e.target.style.color = "#fff" }} onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.color = P.pri }}>トップに戻る</a> : <button onClick={reset} style={{ padding: "12px 32px", background: "transparent", color: P.pri, border: `2px solid ${P.pri}`, borderRadius: 8, fontSize: 14, cursor: "pointer", fontWeight: 600, transition: "all 0.2s" }}
+            onMouseEnter={e => { e.target.style.background = P.pri; e.target.style.color = "#fff" }} onMouseLeave={e => { e.target.style.background = "transparent"; e.target.style.color = P.pri }}>トップに戻る</button>}</div>
         </div>
       </div>;
 

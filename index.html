@@ -441,7 +441,12 @@
       };
 
       // HOME
-      if (view === "home") return <div style={{ minHeight: "100vh", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
+      if (view === "home") return <div style={{ minHeight: "100vh", background: "transparent", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "80px 24px 24px", position: "relative" }}>
+        <div style={{ position: "absolute", top: 24, right: 24, display: "flex", gap: 6, fontSize: 13, background: "rgba(255,255,255,0.06)", padding: "6px 14px", borderRadius: 20, border: `1.5px solid ${P.bdr}`, zIndex: 10 }}>
+          <span style={{ color: "#fff", fontWeight: 700 }}>JP</span>
+          <span style={{ color: P.mut }}>/</span>
+          <a href="index_en.html" style={{ color: P.mut, textDecoration: "none", transition: "color 0.2s" }} onMouseEnter={e => e.target.style.color = P.priL} onMouseLeave={e => e.target.style.color = P.mut}>EN</a>
+        </div>
         <div style={{ maxWidth: 540, width: "100%" }}>
           <div style={{ textAlign: "center", marginBottom: 36 }}>
             <div style={{ width: 64, height: 64, borderRadius: "50%", background: "linear-gradient(135deg,#2B5EA7,#5B8AF0)", margin: "0 auto 20px", display: "flex", alignItems: "center", justifyContent: "center" }}>

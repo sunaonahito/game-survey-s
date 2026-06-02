@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Straying - ゲーム体験前のご案内</title>
+    <title>Straying - Pre-experience Information</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -76,33 +76,6 @@
             font-size: 15px;
             color: rgba(255, 255, 255, 0.8);
         }
-        .code-box {
-            background: rgba(91, 138, 240, 0.1);
-            border: 1.5px solid rgba(91, 138, 240, 0.4);
-            border-radius: 12px;
-            padding: 24px;
-            margin: 30px 0;
-        }
-        .code-box-title {
-            font-size: 13px;
-            color: rgba(91, 138, 240, 0.9);
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        .code-value {
-            font-size: 32px;
-            font-weight: bold;
-            font-family: monospace, sans-serif;
-            color: #ffffff;
-            letter-spacing: 4px;
-            margin: 0;
-        }
-        .code-desc {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.6);
-            margin-top: 12px;
-            line-height: 1.6;
-        }
         .start-btn {
             display: inline-block;
             background: linear-gradient(135deg, #5B8AF0, #2B5EA7);
@@ -147,17 +120,17 @@
 <body>
     <div class="container">
         <div class="lang-switcher">
-            <span class="lang-btn active">JP</span>
+            <a href="game.html" class="lang-btn">JP</a>
             <span class="lang-divider">/</span>
-            <a href="game_en.html" class="lang-btn">EN</a>
+            <span class="lang-btn active">EN</span>
         </div>
         <h1>Straying</h1>
-        <p>これより、ゲーム体験へ移ります。<br>プレイ時間は約20分〜30分を予定しています。</p>
+        <p>We will now proceed to the game experience.<br>The estimated play time is approximately 20 to 30 minutes.</p>
 
         <div style="margin: 40px 0;">
-            <p style="font-size: 15px; color: rgba(255, 255, 255, 0.95); margin-bottom: 6px; font-weight: 700;">あなたの匿名コードが自動入力されています</p>
-            <p style="font-size: 13px; color: rgba(255, 255, 255, 0.65); margin-bottom: 12px;">先ほど作成したコードと一致していることを確認してください</p>
-            <input type="text" id="codeInput" placeholder="例： 0315-BFA" value="" style="
+            <p style="font-size: 15px; color: rgba(255, 255, 255, 0.95); margin-bottom: 6px; font-weight: 700;">Your anonymous code has been automatically filled</p>
+            <p style="font-size: 13px; color: rgba(255, 255, 255, 0.65); margin-bottom: 12px;">Please confirm it matches the code you created earlier</p>
+            <input type="text" id="codeInput" placeholder="e.g., 0315-BFA" value="" style="
                 width: 100%;
                 max-width: 320px;
                 padding: 16px 20px;
@@ -179,17 +152,17 @@
 
         <div class="info-list">
             <ul>
-                <li>「ゲームを始める」を押すと別タブでゲーム画面が開きます。</li>
-                <li>ゲーム内での操作や進め方は自由です。あなたの感じたままに進めてください。</li>
-                <li>ゲームの体験を終えましたら、元のアンケートポータルへ戻り、体験後の質問にご回答をお願いいたします。</li>
+                <li>Pressing "Start Game" will open the game screen in a new tab.</li>
+                <li>You are free to interact and progress through the game in any way you choose. Please proceed as you feel.</li>
+                <li>Once you have finished the game experience, please return to the original survey portal and answer the post-experience survey questions.</li>
             </ul>
         </div>
 
-        <button onclick="startGame()" class="start-btn">ゲームを始める</button>
+        <button onclick="startGame()" class="start-btn">Start Game</button>
     </div>
 
     <script>
-        const GAS_URL = "https://script.google.com/macros/s/AKfycbw0wmVvLZxN8qqffSh3JYGtTzsnHOBN9uOav22vPdZSGL28QgnrWVaSSnzSRZ25-CQ4fg/exec";
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbweYZsuTYJVG4OifZPjQFtv_Q66fXJD8IW-XXjRVbsiWRIYAZ8dJenbvtGlwW7g7Ta2wg/exec";
 
         window.addEventListener("DOMContentLoaded", function() {
             const urlParams = new URLSearchParams(window.location.search);

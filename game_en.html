@@ -177,7 +177,8 @@
 
         function startGame() {
             const code = document.getElementById('codeInput').value.trim();
-            const ts = new Date().toISOString();
+            const now = new Date();
+            const ts = new Date(now.getTime() - (now.getTimezoneOffset() * 60000)).toISOString().replace("Z", "");
             fetch(GAS_URL, {
                 method: 'POST',
                 mode: 'no-cors',
